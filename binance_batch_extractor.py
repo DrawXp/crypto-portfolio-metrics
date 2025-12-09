@@ -169,12 +169,12 @@ class BinanceBatchExtractor:
 
         # Trigger the Analytics/Averaging script
         # Using sys.executable ensures we use the same Python environment
-        analytics_script = os.path.join(self.base_dir, "media.py")
+        analytics_script = os.path.join(self.base_dir, "portfolio_metrics_engine.py")
         if os.path.exists(analytics_script):
-            logging.info("Triggering analytics module (media.py)...")
+            logging.info("Triggering analytics module (portfolio_metrics_engine.py)...")
             subprocess.run([sys.executable, analytics_script])
         else:
-            logging.warning("media.py not found. Skipping analytics step.")
+            logging.warning("portfolio_metrics_engine.py not found. Skipping analytics step.")
 
 if __name__ == "__main__":
     extractor = BinanceBatchExtractor()
